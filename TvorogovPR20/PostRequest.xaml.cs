@@ -32,7 +32,7 @@ namespace TvorogovPR20
                 response.EnsureSuccessStatusCode();
                 var answer = await response.Content.ReadAsStringAsync();
                 PostUser answer_user = JsonConvert.DeserializeObject<PostUser>(answer);
-                Label1.Text = "Имя: " + answer_user.Name + "\r\n" + "Работа: " + answer_user.Job + "\r\n" + "ID: " + Convert.ToString(answer_user.ID) + "\r\n" + "Время обновления: "  + answer_user.UpdateAt;
+                Label1.Text = "Имя: " + answer_user.Name + "\r\n" + "Работа: " + answer_user.Job + "\r\n" + "ID: " + Convert.ToString(answer_user.ID) + "\r\n" + "Время обновления: "  + Convert.ToString(answer_user.UpdateAt);
             }
             catch
             {

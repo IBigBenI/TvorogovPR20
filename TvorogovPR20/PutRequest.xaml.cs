@@ -27,15 +27,15 @@ namespace TvorogovPR20
             string json = JsonConvert.SerializeObject(user);
             HttpContent content = new StringContent(json);
             HttpClient client = new HttpClient();
-            Random rnd = new Random();
-            int value = rnd.Next();
+            Random random = new Random();
+            int value = random.Next(1, 10);
             try
             {
                 HttpResponseMessage response = await client.PutAsync($"https://reqres.in/api/users/{value}", content);
                 response.EnsureSuccessStatusCode();
                 var answer = await response.Content.ReadAsStringAsync();
                 PutUser answer_user = JsonConvert.DeserializeObject<PutUser>(answer);
-                Label1.Text = "Имя: " + answer_user.Name + "\r\n" + "Работа: " + answer_user.Job + "\r\n" + "Время обновления: " + answer_user.UpdateAt;
+                Label1.Text = "Имя: " + answer_user.Name + "\r\n" + "Работа: " + answer_user.Job + "\r\n" + "Время обновления: " + Convert.ToString(answer_user.UpdateAt);
             }
             catch
             {

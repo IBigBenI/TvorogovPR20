@@ -9,6 +9,6 @@ namespace TvorogovPR20
         public string Name { get; set; }
         public string Job { get; set; }
         public int ID { get; set; }
-        public string UpdateAt { get; set; }
+        public DateTime UpdateAt { get; set; }
     }
 }
